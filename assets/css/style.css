@@ -10,11 +10,17 @@ body {
     line-height: 17px;
     background-color: #E6EAE8;
 }
+
+a{
+   color: #20AAE5;
+   text-decoration: none;
+}
+
 .top-bar {
     width: 100%;
     height:40px;
     min-width: 1050px;
-    background-color: #20aae5;
+    background-color: #3498db;
     border-bottom: 0.25em solid #1894ca;
     margin: 0 0 10px 0;
     display: inline-flex;
@@ -50,8 +56,9 @@ nav a{
 }
 
 nav a:hover {
-    border-bottom: 7px solid #e67e22;
-    color: #fff;
+    /*border-bottom: 7px solid #e67e22;*/
+    text-decoration: none;
+    color: #c8c9d7;
 }
 
 .wrapper {
@@ -131,4 +138,59 @@ textarea:focus {
 
 .post_form input[type="submit"]:active {
     padding : 5px 4px 4px 5px;
+}
+
+.status_post {
+    width: 96%;
+    padding: 0px 5px;
+    font_size: 15px;
+    min_height : 75px;
+}
+
+.post_profile_pic {
+    float: left;
+    margin-right: 7px;
+}
+
+.post_profile_pic img {
+    border-radius: 5px;
+}
+
+#comment_iframe {
+    width: 100%;
+    max-height:250px;
+}
+
+.comment_section {
+    padding: 0 5px 5px 5px
+}
+
+.comment_section img {
+    float:left;
+    margin: 0 3px 3px 3px;
+    border-radius:3;
+    height:30px;
+}
+
+#comment_form textarea {
+    border-color:#D3D3D3;
+    width:85%;
+    height:35px;
+    border-radius:5px;
+    color: #616060;
+    font-size: 14px;
+    margin:3px 3px 3px 5px;
+}
+
+#comment_form input[type="submit"] {
+    background-color: #3498db;
+    color: #214db4 ;
+    border-radius: 5px;
+    width: 13%;
+    height: 38px;
+    margin-top: 4px;
+    position: absolute;
+    border-style: none;
+    font-family: "Bellota-BoldItalic" , sans-serif;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
 }

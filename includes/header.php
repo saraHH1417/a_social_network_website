@@ -58,6 +58,9 @@ else {
             <a>
                 <i class="fa fa-logout" aria-hidden="true"></i>
             </a>
+            <a>
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </a>
         </nav>
 
     </div>

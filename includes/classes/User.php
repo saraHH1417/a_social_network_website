@@ -30,4 +30,30 @@ class User
         return $row['first_name'] ." ". $row['last_name'];
     }
 
+    public function isClosed()
+    {
+        // MY WAY TUTOR WAY IS DIFFERENT
+        if($this->user['user_closed'] == "yes") {
+            return True;
+        }else {
+            return false;
+        }
+    }
+
+    public function isFriend($username_to_check) {
+        $usernamecomma = "," . $username_to_check . "," ;
+
+        if ((strstr($this->user['friend_array'] , $usernamecomma)) || $this->user['username'] == $username_to_check) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function getProfilePic()
+    {
+        return $this->user['profile_pic'];
+    }
+
 }
