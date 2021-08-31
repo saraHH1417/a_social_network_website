@@ -1,0 +1,125 @@
+@font-face {
+    font-family:'Bellota-LightItalic' ;
+    src: url(../fonts/Bellota-LightItalic.otf);
+}
+@font-face {
+    font-family:'Bellota-BoldItalic' ;
+    src: url(../fonts/Bellota-BoldItalic.otf);
+}
+html , body {
+    height: 100%;
+    min-height: 100%;
+}
+form {
+    text-align: center;
+}
+/* body {
+    background-image: url("../images/backgrounds/register_background.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+body{
+	margin: 0;
+	padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #00a8ff;
+}
+.wrapper {
+	background-image: url("../images/backgrounds/register_background.jpg");
+	background-size: 100%;
+	width: 100%;
+	height: 100%;
+	min-width: 950px;
+
+}
+
+.login_box {
+	font-family: 'Bellota-LightItalic', sans-serif;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	top: 7%;
+	width: 35%;
+	background-color: #ffffff;
+	border: 1px solid #EDEDED;
+	border-radius: 7px;
+	padding: 5px;
+	opacity: 0.98;
+} 
+/* .wrapper {
+    background-image: url("../images/backgrounds/register_background.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} */
+
+/* .login_box {
+    font-family: "Bellota-LightItalic", sans-serif;
+    position: absolute;
+    width: 36%;
+    top: 20%;
+    left: 35%;
+    padding: 0;
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #ffffff;
+    border : 1px solid #EDEDED;
+    border-radius: 7px;
+} */
+
+.login-header {
+    font-family: "Bellota-LightItalic", sans-serif;
+    width: 100%;
+    height: 90px;
+    background-color: #00a8ff;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.login-header h1 {
+    font-family: "Bellota-BoldItalic", sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #2C6C96;
+    text-align: center;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
+    font-size: 250%;
+}
+input[type="submit"] {
+    font-family: "Bellota-BoldItalic", sans-serif;
+    background-color: #3498db;
+    border : 1px solid;
+    margin: 5px 0  10px 0;
+    border-radius: 3px;
+    padding: 5px 10px 5px 10px;
+    color: #2C6C96;
+    text-shadow: #73B6E2 0.5px 0.5px 0px;
+    font-size: 100%;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    border: 1px solid #e5e5e5;
+    margin-top: 5px;
+    width: 70%;
+    height: 35px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+
+}
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover {
+    border-color: #3498db;
+}
+
+.second {
+    display: none;
+}
