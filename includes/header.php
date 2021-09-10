@@ -1,6 +1,11 @@
 <?php
 
-require"config/config.php";
+require_once"config/config.php";
+include_once("includes/classes/User.php");
+include_once("includes/classes/Post.php");
+include_once("includes/classes/Message.php");
+
+
 if(isset($_SESSION["username"])) {
     $userLoggedin = $_SESSION["username"];
     $userDetailsQuery = mysqli_query($con , "SELECT * FROM users WHERE username='$userLoggedin'");
@@ -23,10 +28,15 @@ else {
     <script src="./assets/js/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="https://use.fontawesome.com/1420ea7a38.js"></script>
+    <script src="assets/js/bootbox.min.js"></script>
+    <script src="assets/js/demo.js"></script>
+    <script src="assets/js/jquery.jcrop.js"></script>
+    <script src="assets/js/jcrop_bits.js"></script>
 
     <!--    CSS-->
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/jquery.Jcrop.css" type="text/css" />
 </head>
 <body>
     <div class="top-bar">
@@ -43,13 +53,13 @@ else {
             <a href="index.php">
                 <i class="fa fa-home" aria-hidden="true"></i>
             </a>
-            <a href="#">
+            <a href="messages.php">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
             </a>
             <a href="#">
                 <i class="fa fa-bell" aria-hidden="true"></i>
             </a>
-            <a>
+            <a href="requests.php">
                 <i class="fa fa-users" aria-hidden="true"></i>
             </a>
             <a>
@@ -58,7 +68,7 @@ else {
             <a>
                 <i class="fa fa-logout" aria-hidden="true"></i>
             </a>
-            <a>
+            <a href="includes/handlers/logout.php">
                 <i class="fa fa-sign-out" aria-hidden="true"></i>
             </a>
         </nav>

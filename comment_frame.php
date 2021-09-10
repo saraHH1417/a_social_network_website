@@ -1,3 +1,19 @@
+<?php
+
+    require_once "config/config.php";
+    include_once("includes/classes/User.php");
+    include_once("includes/classes/Post.php");
+
+
+    if(isset($_SESSION["username"])) {
+        $userLoggedin = $_SESSION["username"];
+        $userDetailsQuery = mysqli_query($con , "SELECT * FROM users WHERE username='$userLoggedin'");
+        $user = mysqli_fetch_array($userDetailsQuery);
+    }
+    else {
+        header("Location: register.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,23 +29,6 @@
         }
     </style>
 
-    <?php
-
-        require "config/config.php";
-        include("includes/classes/User.php");
-        include("includes/classes/Post.php");
-
-
-        if(isset($_SESSION["username"])) {
-            $userLoggedin = $_SESSION["username"];
-            $userDetailsQuery = mysqli_query($con , "SELECT * FROM users WHERE username='$userLoggedin'");
-            $user = mysqli_fetch_array($userDetailsQuery);
-        }
-        else {
-            header("Location: register.php");
-        }
-    ?>
-    
 <!--    <script>-->
 <!--        function toggle() {-->
 <!--            let element = document.getElementById("comment_section");-->
@@ -60,7 +59,7 @@
             $date_time_now = date("Y-m-d H:i:s");
 
             if (trim($post_body) == "") {
-                echo "Comment can not be empty";
+                echo "Comment can not be empty , there is a bug here fix it. this message should disappear when you toggle the commentsection page";
             }else {
                 echo "Comment is posted successfully";
                 $insert_comment = mysqli_query($con, "INSERT INTO  comments VALUES ('' , '$post_body' , '$userLoggedin' , '$posted_to',
@@ -79,7 +78,7 @@
         $get_comments = mysqli_query($con , "SELECT * FROM comments WHERE post_id='$post_id' ORDER BY id ASC ");
         $count = mysqli_num_rows($get_comments);
 
-        if($count = ! 0) {
+        if($count != 0) {
             while($comment = mysqli_fetch_array($get_comments)) {
                 $comment_body = $comment['post_body'];
                 $posted_to = $comment['posted_to'];
@@ -97,9 +96,9 @@
                 // print time interval
                 if ($interval->y >= 1) {
                     if ($interval->y == 1) {
-                        $time_msg = y + " year ago";
+                        $time_msg = $interval->y + " year ago";
                     } else {
-                        $time_msg = y + " years ago";
+                        $time_msg = $interval->y + " years ago";
                     }
                 } elseif ($interval->m >= 1) {
                     if ($interval->d == 1) {
@@ -149,6 +148,9 @@
             </div>
     <?php
             }
+        }
+        else {
+            echo "<center><br><br> No comments to show! </center>";
         }
     ?>
 </body>

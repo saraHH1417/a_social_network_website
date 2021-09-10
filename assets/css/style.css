@@ -59,6 +59,7 @@ nav a:hover {
     /*border-bottom: 7px solid #e67e22;*/
     text-decoration: none;
     color: #c8c9d7;
+    cursor: pointer;
 }
 
 .wrapper {
@@ -147,6 +148,10 @@ textarea:focus {
     min_height : 75px;
 }
 
+.status_post:hover {
+    cursor: pointer;
+}
+
 .post_profile_pic {
     float: left;
     margin-right: 7px;
@@ -159,6 +164,9 @@ textarea:focus {
 #comment_iframe {
     width: 100%;
     max-height:250px;
+    margin-bottom: 20px;
+
+
 }
 
 .comment_section {
@@ -168,7 +176,7 @@ textarea:focus {
 .comment_section img {
     float:left;
     margin: 0 3px 3px 3px;
-    border-radius:3;
+    border-radius:3px;
     height:30px;
 }
 
@@ -193,4 +201,172 @@ textarea:focus {
     border-style: none;
     font-family: "Bellota-BoldItalic" , sans-serif;
     text-shadow: #73B6E2 0.5px 0.5px 0px;
+}
+
+.newsfeedPostOptions {
+    display: block;
+    padding: 0px;
+    text-decoration: none;
+    color: #20AAE5;
+    border:none ;
+    margin-bottom: 20px;
+}
+
+.newsfeedPostOptions iframe {
+    position: absolute;
+    border: 0;
+    width:120px;
+    height: 30px;
+}
+.comment_like {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: #3498db;
+    height :auto;
+    width: auto;
+}
+
+.comment_like:hover {
+    cursor: pointer;
+}
+
+.like_value {
+    display: inline;
+    font-size: 14px;
+
+}
+
+.profile-left {
+    margin-top: 7vh;
+    top : -8px;
+    width : 17%;
+    min-width: 130px;
+    max-width: 240px;
+    height: 100vh;
+    min-height: 100%;
+    float: left;
+    position: fixed;
+    background-color: #3498DB;
+    border-right : 10px solid #83D6FE;
+    color : #CBEAF8;
+    margin-left: 0px;
+    margin-right: 20px;
+    display: block;
+}
+
+.profile-left img {
+    margin-top: 5%;
+    top: 20px;
+    min-width: 80px;
+    width: 55%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border : 5px solid #83D6FE;
+    border-radius : 100px;
+}
+
+.profile_info {
+    display: list-item;
+    background-color: #2980b9 ;
+    width : 100%;
+    padding : 10px 0 10px 0;
+    margin-top: 10%;
+}
+
+.profile_info p {
+    margin: 0 0 0 20px;
+    word-wrap: break-word;
+}
+
+.danger {
+    background-color: #e74c3c ;
+}
+
+.warning {
+    background-color: #f0ad4e ;
+}
+
+.default {
+    background-color: #bdc3c7 ;
+}
+
+.success {
+    background-color: #2ecc71 ;
+}
+
+.info {
+    background-color: #3498db ;
+}
+
+.deep_blue {
+    background-color: #0043f0 ;
+}
+
+.profile-left input[type="submit"] {
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    margin: 7px auto 7px auto;
+    display: block;
+    border: none;
+    color: #fff;
+}
+
+#accept_request_button {
+    width: 15%;
+    height: 28px;
+    border-radius: 5px;
+    margin: 5px;
+    border: none;
+    color: #fff;
+    background-color: #2ecc71;
+}
+
+#ignore_request_button {
+    width: 15%;
+    height: 28px;
+    border-radius: 5px;
+    margin: 5px;
+    border: none;
+    color: #fff;
+    background-color: #e74c3c;
+}
+
+.profile_post  textarea{
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.status_post button {
+    height: 22px;
+    width: 22px;
+    padding: 0;
+    float: right;
+    border-radius: 8px;
+    right: -15px;
+    position: relative;
+    box-shadow: none;
+    background-color: #1f93e1;
+    color: #fff;
+    border: none;
+}
+
+.profile_main_column {
+    min-width: 675px;
+    float: left;
+    width: 70%;
+    z-index: -1;
+    float: right;
+}
+
+.profile_info_buttom {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
 }
