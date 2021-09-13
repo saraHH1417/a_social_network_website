@@ -35,7 +35,7 @@ class User
     {
         // MY WAY TUTOR WAY IS DIFFERENT
         if ($this->user['user_closed'] == "yes") {
-            return True;
+            return true;
         } else {
             return false;
         }

@@ -95,12 +95,12 @@ if (isset($_POST['register_button'])){
         $password = md5($password); // encrypting password before sending to database
 
         // generating username by concatenating first name and last name
-        $username = strtolower($fname. "-". $lname);
+        $username = strtolower($fname. "_". $lname);
         $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username ='$username' ");
         $i = 0;
         while(mysqli_num_rows($check_username_query)){
             $i++;
-            $username = $username ."-". $i;
+            $username = $username ."_". $i;
             $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username ='$username' ");
         }
          // Profile picture assignment

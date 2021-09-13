@@ -10,7 +10,7 @@
             $num_friends = 0;
         }
     }
-
+    $message_obj = new Message($con , $userLoggedin);
     $Logged_in_user_obj = new User($con , $userLoggedin);
 
     if(isset($_POST['remove_friend'])) {
@@ -27,6 +27,23 @@
     elseif(isset($_POST['respond_request'])) {
         header("Location:requests.php");
     }
+// this is another way for message tabs that has one problem , after sending message the page sends the message again; and needs a header
+// but i don't know how to set header that page goes to the messages tab
+//    if(isset($_POST['post_message'])) {
+//
+//        if(isset($_POST['message_body'])) {
+//            $body = mysqli_real_escape_string($con , $_POST['message_body']);
+//            $date = date("Y-m-d H:i:s");
+//            $message_obj->sendMessage($username, $body, $date);
+//        }
+//
+//        $link = '#profileTabs a[href="#messages_div"]';
+//        echo  "<script>
+//                    $(function() {
+//                        $('". $link ."').tab('show');
+//                    })
+//                </script>";
+//    }
 
 ?>
 <style type="text/css">
@@ -87,8 +104,45 @@
         </div>
 
         <div class="profile_main_column column">
-            <div class="posts_area"></div>
-            <img id="loading" src="assets/images/icons/loading.gif">
+<!--            Bootstrap tabs-->
+            <ul class="nav nav-tabs" role="tablist" id="profileTabs">
+                <li class="nav-item active">
+                    <a class="nav-link active" aria-controls="newsfeed_div" href="#newsfeed_div" role="tab" data-toggle="tab">
+                        Newsfeed
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-controls="about_div" href="#about_div" role="tab" data-toggle="tab">
+                        About
+                    </a>
+                </li>
+                <li class="nav-item" id="message_tab">
+                    <a class="nav-link"  aria-controls="messages_div" href="#messages_div" role="tab" data-toggle="tab">
+                        Messages
+                    </a>
+                </li>
+            </ul>
+
+
+            <div class="tab-content">
+
+                <div role="tabpanel" class="tab-pane fade in active" id="newsfeed_div">
+                    <div class="posts_area"></div>
+                    <img id="loading" src="assets/images/icons/loading.gif">
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="about_div">
+                    <h1>hi</h1>
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="messages_div">
+                    <iframe src="profile_messages_frame.php?profile_username=<?php echo $username; ?>" id="iframe_profile_messages">
+                    </iframe>
+
+                </div>
+
+            </div>
+
       </div>
             <!-- Modal -->
             <div class="modal fade" id="post_form" tabindex="-1" role="dialog" aria-labelledby="postModalCenterTitle" aria-hidden="true">
@@ -122,7 +176,11 @@
 
 <script>
     let userLoggedin = '<?php echo $userLoggedin; ?>';
-    let profileUsername = '<?php echo $username; ?>  ';
+    let profileUsername = '<?php echo $username; ?>';
+
+    if(userLoggedin == profileUsername) {
+        $('#message_tab').hide();
+    }
     $(document).ready(function () {
         $('#loading').show();
 
@@ -167,7 +225,6 @@
             } // End if
             //return false; It was in the course , but I didn't know the meaning so I commented it.
         }); // end $(window).scroll(function() {
-
     });
 </script>
 

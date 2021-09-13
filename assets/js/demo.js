@@ -15,4 +15,10 @@ $(document).ready(function() {
             }
         });
     });
+
 });
+    function getUsers(value, user) {
+        $.post("includes/handlers/ajax_friend_search.php" , {query:value , userLoggedin:user} , function(data){
+            $('.results').html(data);
+        });
+    };

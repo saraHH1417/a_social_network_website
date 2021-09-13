@@ -385,7 +385,7 @@ class Post
                                 </div>
                                 
                                 <div class='posted_by' style='color:#ACACAC'>
-                                    <a href='$added_by' > $first_name  $last_name</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href='$added_by' >". $first_name ." ". $last_name . "</a> &nbsp;&nbsp;&nbsp;&nbsp;
                                     $time_msg
                                     $delete_button
                                 </div>
