@@ -3,7 +3,7 @@
 require_once "config/config.php";
 include_once("includes/classes/User.php");
 include_once("includes/classes/Post.php");
-
+include_once("includes/classes/Notification.php");
 
 if(isset($_SESSION["username"])) {
     $userLoggedin = $_SESSION["username"];
@@ -48,7 +48,7 @@ else {
 
     $user_details_query = new User($con , $user_has_been_liked);
     $total_user_likes = $user_details_query->getNumLikes();
-
+    $nottification_obj = new Notification($con , $userLoggedin);
     // like button
 
     if(isset($_POST['like_button'])) {
@@ -57,6 +57,9 @@ else {
         $query = mysqli_query($con , "UPDATE posts set likes='$total_likes_of_post' WHERE id='$post_id' ");
         $user_likes = mysqli_query($con, "UPDATE users SET num_likes='$total_user_likes' WHERE username='$user_has_been_liked' ");
         $insert_like = mysqli_query($con , "INSERT INTO likes values('', '$userLoggedin', '$post_id' )");
+        if($user_has_been_liked != $userLoggedin) {
+            $insert_like_notification = $nottification_obj->insertNotification($post_id, $user_has_been_liked, 'like');
+        }
     }
 
     // unlike button
@@ -66,6 +69,9 @@ else {
         $query = mysqli_query($con , "UPDATE posts set likes='$total_likes_of_post' WHERE id='$post_id' ");
         $user_likes = mysqli_query($con, "UPDATE users SET num_likes='$total_user_likes' WHERE username='$user_has_been_liked' ");
         $insert_like = mysqli_query($con , "DELETE FROM likes WHERE username='$userLoggedin' AND post_id='$post_id' ");
+        if($user_has_been_liked != $userLoggedin) {
+            $insert_like_notification = $nottification_obj->insertNotification($post_id, $user_has_been_liked, 'unlike');
+        }
     }
 
     //check for previous likes

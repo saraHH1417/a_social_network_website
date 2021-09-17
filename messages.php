@@ -21,6 +21,7 @@ if(isset($_POST['post_message'])) {
 
     if(isset($_POST['message_body'])) {
         $body = mysqli_real_escape_string($con , $_POST['message_body']);
+
         $date = date("Y-m-d H:i:s");
         $message_obj->sendMessage($user_from_or_to, $body, $date);
         header("Location:messages.php");
@@ -90,7 +91,6 @@ if(isset($_POST['post_message'])) {
     <script>
         const div = document.getElementById("scroll_messages");
         div.scrollTop = div.scrollHeight;
-        })
     </script>
 
 </div>

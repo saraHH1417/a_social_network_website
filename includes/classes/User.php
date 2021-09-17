@@ -160,4 +160,11 @@ class User
        return $mutual_friends ;
     }
 
+    public function getNumberOfFriendRequests()
+    {
+        $userLoggedin = $this->GetUsername();
+        $friend_request_query = mysqli_query($this->con , "select id from friend_requests where user_to='$userLoggedin'");
+        return mysqli_num_rows($friend_request_query);
+    }
+
 }

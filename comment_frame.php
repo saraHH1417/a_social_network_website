@@ -3,7 +3,7 @@
     require_once "config/config.php";
     include_once("includes/classes/User.php");
     include_once("includes/classes/Post.php");
-
+    include_once("includes/classes/Notification.php");
 
     if(isset($_SESSION["username"])) {
         $userLoggedin = $_SESSION["username"];
@@ -47,11 +47,13 @@
         if(isset($_GET["post_id"])) {
             $post_id = $_GET['post_id'];
         }
-
+        $nottification_obj = new Notification($con , $userLoggedin);
         $user_query = mysqli_query($con , "SELECT added_by,user_to FROM posts WHERE id='$post_id'");
         $row = mysqli_fetch_array($user_query);
 
-        $posted_to = $row['added_by'];
+        $post_creator = $row['added_by'];
+        $post_user_to = $row['user_to'];
+
 
         if(isset($_POST['postComment'. $post_id]) )  {
             $post_body = $_POST['post_body'];
@@ -59,11 +61,29 @@
             $date_time_now = date("Y-m-d H:i:s");
 
             if (trim($post_body) == "") {
-                echo "Comment can not be empty , there is a bug here fix it. this message should disappear when you toggle the commentsection page";
+                echo "Comment can not be empty";
+                 //there is a bug here fix it. this message should disappear when you toggle the commentsection page
             }else {
                 echo "Comment is posted successfully";
-                $insert_comment = mysqli_query($con, "INSERT INTO  comments VALUES ('' , '$post_body' , '$userLoggedin' , '$posted_to',
+                $insert_comment = mysqli_query($con, "INSERT INTO  comments VALUES ('' , '$post_body' , '$userLoggedin' , '$post_creator',
                                                 '$date_time_now', 'no' , '$post_id') ");
+                if($userLoggedin != $post_creator) {
+                    $insert_comment_notification = $nottification_obj->insertNotification($post_id, $post_creator, 'comment');
+                }
+                if( $post_user_to != 'none' &&$userLoggedin != $post_user_to ) {
+                    $insert_comment_notification = $nottification_obj->insertNotification($post_id, $post_user_to, 'profile_comment');
+                }
+
+                $users_commented_on_post = mysqli_query($con , "select posted_by from comments where post_id='$post_id' ");
+                $notified_users = array();
+                while($row = mysqli_fetch_array($users_commented_on_post)) {
+                    if($row['posted_by'] != $post_creator && $row['posted_by']  != $post_user_to &&
+                        $row['posted_by']  != $userLoggedin && !in_array($row['posted_by'] , $notified_users)) {
+                        $insert_comment_notification = $nottification_obj->insertNotification($post_id, $row['posted_by'] ,
+                                                                        'comment_on_the_post_you_commented');
+                        array_push($notified_users, $row['posted_by'] );
+                    }
+                }
             }
         }
     ?>

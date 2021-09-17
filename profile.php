@@ -51,6 +51,9 @@
         margin-left: 0;
         padding-left: 0;
     }
+    .modal.fade {
+        top : -50%;
+    }
 </style>
 <script>
     document.getElementsByClassName('profile-left').height = document.height;
@@ -111,12 +114,12 @@
                         Newsfeed
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" >
                     <a class="nav-link" aria-controls="about_div" href="#about_div" role="tab" data-toggle="tab">
                         About
                     </a>
                 </li>
-                <li class="nav-item" id="message_tab">
+                <li class="nav-item" id="message_tab" >
                     <a class="nav-link"  aria-controls="messages_div" href="#messages_div" role="tab" data-toggle="tab">
                         Messages
                     </a>
@@ -134,12 +137,12 @@
                 <div role="tabpanel" class="tab-pane fade" id="about_div">
                     <h1>hi</h1>
                 </div>
-
                 <div role="tabpanel" class="tab-pane fade" id="messages_div">
                     <iframe src="profile_messages_frame.php?profile_username=<?php echo $username; ?>" id="iframe_profile_messages">
                     </iframe>
 
                 </div>
+
 
             </div>
 

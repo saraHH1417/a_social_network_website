@@ -36,7 +36,6 @@ if (isset($_POST['post'])) {
 
     <div class="posts_area"></div>
     <img id="loading" src="assets/images/icons/loading.gif">
-
 </div>
 <script>
     let userLoggedin = '<?php echo $userLoggedin; ?>';
@@ -61,7 +60,7 @@ if (isset($_POST['post'])) {
             // let scroll_top = $(this).scrollTop();
             let scrollHeight = $(document).height();
             let scrollPos = $(window).height() + window.pageYOffset; // pageY0ffset means window.scrollTop()
-            let page = $('.posts_area').find('.nextPage').val();
+            let page = $('.nextPage').val();
             let noMorePosts = $('.posts_area').find('.noMorePosts').val();
 
 

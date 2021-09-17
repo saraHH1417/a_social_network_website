@@ -27,6 +27,7 @@ $message_obj = new message($con , $userLoggedin);
 
         if(isset($_POST['message_body'])) {
             $body = mysqli_real_escape_string($con , $_POST['message_body']);
+
             $date = date("Y-m-d H:i:s");
             $message_obj->sendMessage($profile_username, $body, $date);
         }
