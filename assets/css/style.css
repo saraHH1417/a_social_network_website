@@ -498,7 +498,7 @@ textarea:focus {
 
 .resultDisplay {
     padding: 5px 5px 0 4px;
-    height: 60px;
+    height: 65px;
     border-bottom: 1px solid #D3D3D3;
 }
 
@@ -617,4 +617,96 @@ textarea:focus {
 .time_stamp_smaller {
     font-size: 85%;
     margin: 0;
+}
+
+.search {
+    margin: 8px 0 0 15%;
+}
+
+
+.div_nav_search_users {
+    height: 20px;
+}
+
+.search #search_text_input {
+    border: 0.5px solid #E5E5E5;
+    position: relative;
+    float: left;
+    outline: 0;
+    width: 130px;
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+
+}
+
+.search_button{
+    position: relative;
+    background-color: #F1F1F1;
+    border: 1.5px solid #E5E5E5;
+    cursor:pointer;
+    float: left;
+    text-align: center;
+    width: 40px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius:3px ;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.search_results {
+    background-color: #fff;
+    border: 1px solid #DADADA;
+    border-bottom: none;
+    border-top: none;
+}
+
+.search_results_footer {
+    padding: 7px 4px 0 4px;
+    height: 30px;
+    border: 1px solid #DADADA;
+    border-top: none;
+    background-color: #20AAE5;
+    text-align: center;
+}
+
+.search_results_footer a{
+    color: #fff;
+}
+
+.search_result_page {
+    padding: 10px;
+
+}
+
+.searchPageFriendButton {
+    float: right;
+}
+
+.searchPageFriendButton input[type="submit"] {
+    color: #fff;
+    border:none;
+    border-radius: 5px;
+    height:30px;
+    width:160px
+}
+
+.searchPageFriendButton #friend_request_pending {
+    color: #fff;
+    border:none;
+    border-radius: 5px;
+    height:30px;
+    width:160px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center;
+}
+
+.result_profile_pic {
+    float: left;
+    margin-right: 10px;
+}
+
+#search_result_hr {
+    margin-bottom: 0;
 }

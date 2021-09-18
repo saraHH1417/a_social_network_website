@@ -433,7 +433,7 @@ class Post
             } else {
 
                 $str.= "<input type='hidden' class='noMorePosts' value='true' >
-                    <p text-align='centre;'> No more posts to show!</p> ";
+                    <p style='text-align: center'> No more posts to show!</p> ";
             }
         }
         echo $str;

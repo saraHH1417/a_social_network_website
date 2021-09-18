@@ -1,6 +1,12 @@
 $(document).ready(function() {
-    // Button for profile post
 
+    $("#search_text_input").focus(function (){
+        if(window.matchMedia("(min-width:800px)").matches) {
+            $(this).animate({width: "250px"}, 500 );
+        }
+    });
+
+    // Button for profile post
     $('#submit_profile_post').click(function() {
         $.ajax({
             type: "POST",
@@ -58,3 +64,37 @@ $(document).ready(function() {
             $(".dropdown_data_window").css({"padding" : "0px" , "height" : "0px" , "border" : "none"});
         }
     }
+    function getLiveSearchUsers(value, user) {
+        $.post("includes/handlers/ajax_search.php" , {query:value , userLoggedin: user}, function(data) {
+
+            $(".search_results").html(data);
+
+            if(data == "") {
+                $(".search_results_footer").html("");
+                $(".search_results_footer").toggleClass("search_results_footer_empty");
+                $(".search_results_footer").toggleClass("search_results_footer");
+
+            }else {
+                if($(".search_results_footer_empty")[0]) {
+                    $(".search_results_footer_empty").toggleClass("search_results_footer");
+                    $(".search_results_footer_empty").toggleClass("search_results_footer_empty");
+                }
+                $(".search_results_footer").html("<a href='search.php?q=" + value + "'> See all results!</a>")
+            }
+        });
+    }
+
+$(document).click(function (e) {
+    if(e.target.class != "search_results" && e.target.id != "search_text_input" ) {
+        $(".search_results").html("");
+        $(".search_results_footer").html("");
+        $(".search_results_footer").toggleClass("search_results_footer_empty");
+        $(".search_results_footer").toggleClass("search_results_footer");
+    }
+    if(e.target.class != "dropdown_data_window") {
+        $('.dropdown_data_window').html("");
+        $('.dropdown_data_window').css({"height" : "0px" , "padding" : "0" , "border" : "none"});
+    }
+});
+
+

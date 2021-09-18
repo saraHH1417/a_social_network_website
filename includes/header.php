@@ -46,6 +46,25 @@ else {
             <a href="index.php">Swirlfeed!</a>
         </div>
 
+        <div class="search">
+            <form action="search.php" method="GET" name="search_form">
+                <div class="div_nav_search_users">
+                    <input type="text" onkeyup="getLiveSearchUsers(this.value, '<?php echo $userLoggedin;?>')" name="q"
+                           placeholder="Search for Users" autocomplete="off" id="search_text_input">
+                    <button type="submit" class="search_button">
+                        <img src="assets/images/icons/magnifying_glass.png">
+                    </button>
+                </div>
+            </form>
+
+            <div class="search_results">
+
+            </div>
+            <div class="search_results_footer_empty">
+
+            </div>
+        </div>
+
         <nav>
 
             <?php
@@ -109,7 +128,8 @@ else {
             let userLoggedin = "<?php echo $userLoggedin; ?>";
             $('.dropdown_data_window').scroll(function () {
                 let scrollHeight = $('.dropdown_data_window')[0].scrollHeight;
-                let scrollPos = $('.dropdown_data_window').innerHeight() + $('.dropdown_data_window')[0].scrollTop; // pageY0ffset means window.scrollTop()
+                let scrollPos = $('.dropdown_data_window').innerHeight() + $('.dropdown_data_window')[0].scrollTop;
+                // pageY0ffset means window.scrollTop()
                 let page = $('.dropdown_data_window').find('.nextPageDropDownData').val();
                 let noMoreDropDownData = $('.dropdown_data_window').find('.noMoreDropDownData').val();
                 if ((scrollPos >= scrollHeight) && noMoreDropDownData == 'false') {
