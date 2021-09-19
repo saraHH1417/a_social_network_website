@@ -9,7 +9,7 @@ $names = explode(" " , $query);
 
 // If query contains underscore , assume user is searching for username
 
-if(strpos($query , "_") === true) {
+if(strpos($query , "_") !== false) {
     $usersReturnedQuery = mysqli_query($con , "select * from users where username like '%$query%' and user_closed='no' limit 5");
 }
 //if there are two words assume they are first and last name respectfully

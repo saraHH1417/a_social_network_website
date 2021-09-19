@@ -6,7 +6,7 @@ $(document).ready(function() {
         }
     });
 
-    // Button for profile post
+    // Button for profile posts
     $('#submit_profile_post').click(function() {
         $.ajax({
             type: "POST",

@@ -12,10 +12,10 @@ else {
 
 //$find_post_query = mysqli_query($con , "select * from posts where $post_id='$post_id'");
 //if(mysqli_num_rows($find_post_query) > 0 ){
-//    $post = mysqli_fetch_array($find_post_query);
-//    $post_body = $post['body'];
+//    $posts = mysqli_fetch_array($find_post_query);
+//    $post_body = $posts['body'];
 //}else {
-//    echo "This post has been removed.";
+//    echo "This posts has been removed.";
 //}
 ?>
 

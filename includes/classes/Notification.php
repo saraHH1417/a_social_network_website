@@ -29,28 +29,28 @@ class Notification
 
         switch ($type) {
             case 'comment':
-                $messagge = $user_from_firstlastname . " commented on your post.";
+                $messagge = $user_from_firstlastname . " commented on your posts.";
                 break;
             case 'like':
-                $messagge = $user_from_firstlastname . " liked your post.";
+                $messagge = $user_from_firstlastname . " liked your posts.";
                 break;
             case 'unlike':
-                $messagge = $user_from_firstlastname . " unliked your post.";
+                $messagge = $user_from_firstlastname . " unliked your posts.";
                 break;
             case 'profile_post':
                 $messagge = $user_from_firstlastname. " posted on your profile.";
                 break;
             case 'profile_comment':
-                $messagge = $user_from_firstlastname . " commented on a post in your profile.";
+                $messagge = $user_from_firstlastname . " commented on a posts in your profile.";
                 break;
             case 'comment_on_the_post_you_commented':
-                $messagge = $user_from_firstlastname . " commented on a post you commented before.";
+                $messagge = $user_from_firstlastname . " commented on a posts you commented before.";
                 break;
 
 
         }
 
-        $link = "post.php?id=" . $post_id ;
+        $link = "posts.php?id=" . $post_id ;
 
         $insert_query = mysqli_query($this->con , "insert into notifications values('' , '$user_to', '$user_from_username', '$messagge',
                                         '$link' , '$date_time' , 'no' , 'no')");

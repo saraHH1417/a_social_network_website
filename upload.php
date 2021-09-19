@@ -45,7 +45,7 @@ if(isset($_FILES['image']['name'])){
     } else {
         $imgSrc= "assets/images/profile_pics/".$file_name; // the image to display in crop area
         $msg= "Upload Complete!";  	//message to page
-        $src = $file_name;	 		//the file name to post from cropping form to the resize
+        $src = $file_name;	 		//the file name to posts from cropping form to the resize
     }
 
     /***********************************************************
@@ -150,7 +150,7 @@ if (isset($_POST['x'])){
     $insert_pic_query = mysqli_query($con, "UPDATE users SET profile_pic='$result_path' WHERE username='$userLoggedin'");
     header("Location: ".$userLoggedin);
 
-}// post x
+}// posts x
 ?>
 <div id="Overlay" style=" width:100%; height:100%; border:0px #990000 solid; position:absolute; top:0px; left:0px; z-index:2000; display:none;"></div>
 <div class="main_column column">

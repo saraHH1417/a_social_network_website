@@ -102,7 +102,7 @@ else {
 
                    echo "<div class='search_result_page'>
                             <div class='searchPageFriendButton'>
-                                <form action='' method='post'>
+                                <form action='' method='posts'>
                                     " . $button . "
                                     <br>
                                 </form>

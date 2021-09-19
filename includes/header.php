@@ -111,7 +111,7 @@ else {
                 }
                 ?>
             </a>
-            <a>
+            <a href="settings.php">
                 <i class="fa fa-cog" aria-hidden="true"></i>
             </a>
 

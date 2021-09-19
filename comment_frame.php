@@ -43,7 +43,7 @@
 <!--    </script>-->
 
     <?php
-        // Get id of the post
+        // Get id of the posts
         if(isset($_GET["post_id"])) {
             $post_id = $_GET['post_id'];
         }
